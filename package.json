@@ -1,0 +1,26 @@
+{
+  "name": "bamazonOddities",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bamCustomer.js",
+  "dependencies": {
+    "easy-table": "^1.1.1",
+    "inquirer": "^6.2.1",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Selinacore/bamazonOddities.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Selinacore/bamazonOddities/issues"
+  },
+  "homepage": "https://github.com/Selinacore/bamazonOddities#readme"
+}

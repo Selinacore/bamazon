@@ -6,7 +6,7 @@ var Table = require("easy-table");
 
 var connection = mysql.createConnection({
     host: "localhost",
-    port: 8080,
+    port: 8889,
     user: "root",
     password: "root",
     database: "bamazon"
@@ -21,7 +21,7 @@ connection.connect(function (err) {
 });
 
 
-function showAllProducts() {
+function showProducts() {
 
   var query = "SELECT * FROM products";
 
@@ -42,11 +42,11 @@ function showAllProducts() {
 
     console.log(t.toString())
 
-    purchaseProduct();
+    purchaseProduct(res);
   })
 }
 
-function purchaseProduct() {
+function purchaseProduct(productData) {
 
   inquirer
     .prompt({
@@ -75,13 +75,30 @@ function purchaseProduct() {
         }
         })
         .then(function (answer2) {
+          //for loop through productData until find product ID matches what user puts in
+          // save to var "chosen item" use that var to write if else (if chosen item.stock quangtity is < answer2.quantity then console log insufficent stock)
+          //
+          var chosenItem;
+          for (var i = 0; i < productData.length; i++) {
+            if (parseInt(answer.purchase) === productData[i].item_id) {
+              chosenItem = productData[i];
+            } 
 
-          connection.query("SELECT stock_quantity FROM products WHERE ?", {stock_quantity: answer2.quantity}, function (err, res) {
-
-            for (var i = 0; i < res.length; i++);
-            
-          })
+          }
+          if (parseInt(answer2.quantity) > chosenItem.stock_quantity) {
+            console.log("Insufficient quantitiy");
+            showProducts ();
+          } else {
+            connection.query("UPDATE products SET stock_quantity = stock_quantity - ? WHERE item_id = ?", [parseInt(answer2.quantity)
+              , answer.purchase], function (err, res) {
+                console.log("You have sucessfully purchased " + answer2.quantity + " of " + chosenItem.product_name);
+                console.log("Your total is " + answer2.quantity * chosenItem.price);
+                
+              })
+          }
+          
         })
     });
 }
+
 
