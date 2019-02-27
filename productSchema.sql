@@ -22,5 +22,5 @@ CREATE TABLE products (
 SELECT * FROM products;
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("product", "department", 9.99, 100), ("standard black pens", "office supplies", .99, 150), ("sticky tape", "office supplies", 4.99, 75), ("refreshing water", "grocery", 2.99, 500), ("furry bear slippers", "clothing", 24.50, 25), ("last year's calendars", "office supplies", 1.99, 10), 
-("squeaky bones", "pet supplies", 5.99, 56), ("squishy pillows", "home goods", 29.99, 43), ("purple potato chips", "grocery", 3.75, 120), ("old VHS tapes", "electronics", 14.50, 37);
+VALUES ("Giant Gummy Bear", "novelty", 9.99, 10), ("Unicorn Mask", "costumes", 12.99, 15), ("Emergency Beard Guards", "survival-gear", 7.99, 25), ("Dog Lion Mane", "pet-supplies", 2.99, 500), ("Bread Slippers", "clothing", 24.99, 20), ("Flying RC Shark", "entertainment", 34.99, 10), 
+("Salt Gun", "pest control", 45.99, 16), ("Exploding Kittins Game", "games", 29.99, 19), ("Earthwork Jerkly", "food", 4.75, 23), ("Sack of Shit", "mystery", 12.00, 27);
